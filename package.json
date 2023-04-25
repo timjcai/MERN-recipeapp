@@ -1,0 +1,26 @@
+{
+  "name": "mern-recipeapp",
+  "version": "1.0.0",
+  "description": "Building a Recipe app to practice React, but to also allow me to collect, store and alter recipes I find on the internet",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\"--quiet",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timjcai/MERN-recipeapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timjcai/MERN-recipeapp/issues"
+  },
+  "homepage": "https://github.com/timjcai/MERN-recipeapp#readme",
+  "devDependencies": {
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "prettier": "^2.8.8"
+  }
+}
