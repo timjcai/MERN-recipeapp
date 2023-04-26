@@ -1,43 +1,24 @@
 const express = require("express");
-const Recipe = require("../models/recipeModel");
+const {
+  allRecipes,
+  getRecipe,
+  createRecipe,
+  deleteRecipe,
+  updateRecipe,
+} = require("../controllers/recipeController");
 const router = express.Router();
 
 // GET all recipes
-router.get("/", (req, res) => {
-  res.json({ mssg: "get all recipes" });
-});
+router.get("/", allRecipes);
 
 // Get single recipe
-router.get("/:id", (req, res) => {
-  res.json({ mssg: "this is a singular recipe" });
-});
+router.get("/:id", getRecipe);
 
 // POST a new recipe
-router.post("/", async (req, res) => {
-  // res.json({ mssg: "form for a new here recipe" });
-  const { name, author, ingredients, steps, cuisine, allergies } = req.body;
+router.post("/", createRecipe);
 
-  try {
-    const recipe = await Recipe.create({
-      name,
-      author,
-      ingredients,
-      steps,
-      cuisine,
-      allergies,
-    });
-    res.status(200).json(recipe);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
+router.delete("/:id", deleteRecipe);
 
-router.delete("/:id", (req, res) => {
-  res.json({ mssg: "action to delete a recipe" });
-});
-
-router.patch("/:id", (req, res) => {
-  res.json({ mssg: "form for updating a recipe" });
-});
+router.patch("/:id", updateRecipe);
 
 module.exports = router;
